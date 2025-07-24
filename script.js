@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = formData.get('message');
 
             try {
-                const res = await fetch('postgresql://postgres:ptBWPGqMVpdxhlVDXRzMfuyLqndgdhXv@metro.proxy.rlwy.net:19328/railway', {
+                const res = await fetch('https://data-analyst-portfolio.up.railway.app', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
