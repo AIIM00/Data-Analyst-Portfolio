@@ -130,6 +130,43 @@ inputs.forEach((input) => {
     input.addEventListener('blur', blurFunc);
 })
 
+// Contact Form Submission
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const username = formData.get('username');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const message = formData.get('message');
+
+            try {
+                const res = await fetch('http://localhost:3000/messages', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, phone, message })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    alert('Error: ' + (data.error || JSON.stringify(data)));
+                }
+            } catch (err) {
+                alert('Request failed: ' + err.message);
+            }
+        });
+    }
+});
+
 // Scroll Section Active Link
 
 const sections = document.querySelectorAll('section[id]');
