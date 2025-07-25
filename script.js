@@ -131,7 +131,7 @@ inputs.forEach((input) => {
 })
 
 // Contact Form Submission
-const supabase = supabase.createClient(SUPBASE_URL, SUPBASE_KEY);
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 async function submitContactForm(event) {
     event.preventDefault();
 

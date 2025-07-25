@@ -1,2 +1,2 @@
-const SUPBASE_URL = "https://marjmeptmdscrmyzeslw.supabase.co"
-const SUPBASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1hcmptZXB0bWRzY3JteXplc2x3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM0NjQ1NDQsImV4cCI6MjA2OTA0MDU0NH0.hdtqG7DXr8BqmjY78DEiSs5xOWoGDgyNnrXlGSwpvds";
+const SUPABASE_URL = "%SUPABASE_URL%"; 
+const SUPABASE_KEY = "%SUPABASE_KEY%"; 
