@@ -131,41 +131,39 @@ inputs.forEach((input) => {
 })
 
 // Contact Form Submission
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
+const supabase = supabase.createClient(SUPBASE_URL, SUPBASE_KEY);
+async function submitContactForm(event) {
+    event.preventDefault();
 
-            const formData = new FormData(contactForm);
-            const username = formData.get('username');
-            const email = formData.get('email');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
+    const form = document.getElementById('contact-form');
+    const formData = new FormData(form);
+    const username = formData.get('username');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
+    const date_sent = new Date().toISOString();
 
-            try {
-                const res = await fetch('https://data-analyst-portfolio.up.railway.app', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, email, phone, message })
-                });
+    try {
+        const { data, error } = await supabase
+            .from('messages')
+            .insert([{ username, email, phone, message, date_sent }]);
 
-                const data = await res.json();
+        if (error) {
+           console.error('Error inserting data:', error);
+            alert('Failed to send message: ' + error.message);
+        }else{
+            alert('Message sent successfully!');
+            console.log('Data inserted successfully:', data);
+            form.reset();
 
-                if (res.ok) {
-                    alert('Message sent successfully!');
-                    contactForm.reset();
-                } else {
-                    alert('Error: ' + (data.error || JSON.stringify(data)));
-                }
-            } catch (err) {
-                alert('Request failed: ' + err.message);
-            }
-        });
+        }
+
+        
+        
+    } catch (error) {
+        alert('Error: ' + error.message);
     }
-});
+}
 
 // Scroll Section Active Link
 
