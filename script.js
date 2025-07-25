@@ -131,10 +131,10 @@ inputs.forEach((input) => {
 })
 
 // Contact Form Submission
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabase = supabase.createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY);
 async function submitContactForm(event) {
     event.preventDefault();
-
+    
     const form = document.getElementById('contact-form');
     const formData = new FormData(form);
     const username = formData.get('username');
@@ -163,7 +163,12 @@ async function submitContactForm(event) {
     } catch (error) {
         alert('Error: ' + error.message);
     }
+   
 }
+ document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", submitContactForm);
+});
 
 // Scroll Section Active Link
 
