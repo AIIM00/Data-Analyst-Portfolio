@@ -166,9 +166,17 @@ async function submitContactForm(event) {
    
 }
  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    form.addEventListener("submit", submitContactForm);
+  const form = document.getElementById("contact-form");
+  if (!form) {
+    console.error("Form not found!");
+    return;
+  }
+  form.addEventListener("submit", function (event) {
+    console.log("Form submit detected!");
+    submitContactForm(event);
+  });
 });
+
 
 // Scroll Section Active Link
 
