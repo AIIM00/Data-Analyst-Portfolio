@@ -131,7 +131,7 @@ inputs.forEach((input) => {
 })
 
 // Contact Form Submission
-const supabase = supabase.createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY);
+const supabaseClient = supabase.createClient(NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY);
 async function submitContactForm(event) {
     event.preventDefault();
     
@@ -144,7 +144,7 @@ async function submitContactForm(event) {
     const date_sent = new Date().toISOString();
 
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('messages')
             .insert([{ username, email, phone, message, date_sent }]);
 
