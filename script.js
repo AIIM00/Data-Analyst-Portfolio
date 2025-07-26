@@ -44,26 +44,6 @@ function activeWork() {
 }
 linkWork.forEach(l => l.addEventListener('click', activeWork));
 
-//Portfolio Popup
-
-document.addEventListener('click', (e) => {
-    if(e.target.classList.contains('work-button')){
-        togglePortfolioPopup();
-        portfolioItemDetails(e.target.parentElement);
-    }
-})
-
-function togglePortfolioPopup() {
-    document.querySelector('.portfolio-popup').classList.toggle('open');
-}
-
-document.querySelector('.portfolio-popup-close').addEventListener('click', togglePortfolioPopup);
-
-function portfolioItemDetails(portfolioItem) {
-    document.querySelector('.pp-thumbnail img').src = portfolioItem.querySelector('.work-img').src;
-    document.querySelector('.portfolio-popup-subtitle span').innerHTML = portfolioItem.querySelector('.work-title').innerHTML;
-    document.querySelector('.portfolio-popup-body').innerHTML = portfolioItem.querySelector('.portfolio-item-details').innerHTML;
-}
 
 //Certifications Popup
 const modalViews = document.querySelectorAll('.certifications-modal');
@@ -129,54 +109,6 @@ inputs.forEach((input) => {
     input.addEventListener('focus', focusFunc);
     input.addEventListener('blur', blurFunc);
 })
-
-// Contact Form Submission
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-async function submitContactForm(event) {
-    event.preventDefault();
-    
-    const form = document.getElementById('contact-form');
-    const formData = new FormData(form);
-    const username = formData.get('username');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const message = formData.get('message');
-    const date_sent = new Date().toISOString();
-
-    try {
-        const { data, error } = await supabaseClient
-            .from('messages')
-            .insert([{ username, email, phone, message, date_sent }]);
-
-        if (error) {
-           console.error('Error inserting data:', error);
-            alert('Failed to send message: ' + error.message);
-        }else{
-            alert('Message sent successfully!');
-            console.log('Data inserted successfully:', data);
-            form.reset();
-
-        }
-
-        
-        
-    } catch (error) {
-        alert('Error: ' + error.message);
-    }
-   
-}
- document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
-  if (!form) {
-    console.error("Form not found!");
-    return;
-  }
-  form.addEventListener("submit", function (event) {
-    console.log("Form submit detected!");
-    submitContactForm(event);
-  });
-});
-
 
 // Scroll Section Active Link
 
