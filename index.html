@@ -1,11 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <script>
-    window.SUPABASE_URL = "{{SUPABASE_URL}}";
-    window.SUPABASE_ANON_KEY = "{{SUPABASE_ANON_KEY}}";
-    </script>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,6 +79,9 @@
                             <i class="uil uil-github"></i>
                         </a>
                     </div>
+                </div>
+                <div class="cv-button-wrapper">
+                    <button class=" button resume-button" onclick="window.open('./assests/resume-example.pdf')">Download CV</button>
                 </div>
                 <div class="home-data">
                     <h1 class="home-title">Hi, I'm Ali</h1>
@@ -412,7 +410,7 @@
             </div>
         </section>
         
-         <section class="certifications section" id="certifications">
+        <section class="certifications section" id="certifications">
             <i class=''></i> 
             <h2 class="section-title" data-heading="Certifications"></h2>
 
@@ -637,9 +635,9 @@
                     </div>
                 </div>
             </div>
-         </section>
+        </section>
 
-         <section class="work section" id="work">
+        <section class="work section" id="work">
             <h2 class="section-title" data-heading="My Portfolio">Recent Works</h2>
 
             <div class="work-filters">
@@ -790,7 +788,7 @@
                 </div>
                 
                 <div class="work-card mix python-projects">
-                    <img src="https://i.postimg.cc/SKBd7RBk/Figure-2-2.png" alt="" class="work-img">
+                    <img src="https://i.postimg.cc/3J92zd3T/medical-data-visualizer.png" alt="" class="work-img">
                     <h3 class="work-title">Medical Data Visualizer</h3>
                     <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
 
@@ -807,7 +805,7 @@
                 </div>
 
                 <div class="work-card mix python-projects">
-                    <img src="https://i.postimg.cc/wjt6FQML/page-view-time-series-visualizer-example3.png" alt="" class="work-img">
+                    <img src="https://i.postimg.cc/XNszkNtr/page-view-time.png" alt="" class="work-img">
                     <h3 class="work-title">Page View Time Series Visualizer</h3>
                     <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
                     <div class="portfolio-item-details">
@@ -823,7 +821,7 @@
                 </div>
 
                 <div class="work-card mix python-projects">
-                    <img src="https://i.postimg.cc/RFm4SrRL/sea-level-predictor.png" alt="" class="work-img">
+                    <img src="https://i.postimg.cc/43v87XzN/sea-level-plot.png" class="work-img">
                     <h3 class="work-title">Sea Level Predictor</h3>
                     <span class="work-button">Demo<i class="uil uil-arrow-right work-button-icon"></i></span>
 
@@ -974,7 +972,34 @@
                         </ul>
                     </div>
                 </div>
-         </section>n
+        </section>
+        <div class="portfolio-popup">
+            <div class="portfolio-popup-inner">
+                <div class="portfolio-popup-content grid">
+                    <span class="portfolio-popup-close"><i class="uil uil-times"></i></span>
+                    <div class="pp-thumbnail">
+                        <img src="https://i.postimg.cc/sXLjnC5p/work-2.png" alt="" class="portfolio-popup-img">
+                    </div>
+
+                    <div class="portfolio-popup-info">
+                        <div class="portfolio-popup-subtitle">Featured - <span>Design</span></div>
+                        <div class="portfolio-popup-body">
+                            <h3 class="details-title">App for Technology & Services</h3>
+                            <p class="details-description">A stylish burger restaurant mobile app interface displayed on two smartphones</p>
+
+                            <ul class="details-info">
+                                <li>Created - <span>15 Apr 2025</span></li>
+                                <li>Technologies - <span>html css</span></li>
+                                <li>Role - <span>frontend</span></li>
+                                <li>View - <span><a href="#">www.domain.com</a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
         <section class="contact section" id="contact">
             <h2 class="section-title" data-heading="Get in Touch">Contact me</h2>
 
@@ -1017,9 +1042,9 @@
                         <li>
                             <a href="#work" class="footer-links">Work</a>
                         </li>
-                        <li>
+                        <!--<li>
                             <a href="#Blogs" class="footer-links">Blogs</a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="#contact" class="footer-links">Contact</a>
                         </li>
